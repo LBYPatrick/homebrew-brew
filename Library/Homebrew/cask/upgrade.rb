@@ -161,7 +161,7 @@ module Cask
           fetchable_cask_installers.each(&:prelude)
 
           fetchable_casks_sentence = fetchable_casks.map { |cask| Formatter.identifier(cask.full_name) }.to_sentence
-          oh1 "Fetching downloads for: #{fetchable_casks_sentence}", truncate: false
+          oh1 "Downloading #{fetchable_casks_sentence}...", truncate: false
 
           fetchable_cask_installers.each(&:enqueue_downloads)
           prefetch_download_queue.fetch

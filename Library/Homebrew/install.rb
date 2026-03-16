@@ -352,7 +352,7 @@ module Homebrew
 
         if show_downloads_heading
           formula_sentence = formulae_names_to_install.map { |name| Formatter.identifier(name) }.to_sentence
-          oh1 "Fetching downloads for: #{formula_sentence}", truncate: false
+          oh1 "Downloading #{formula_sentence}...", truncate: false
         end
         formula_installers.each do |fi|
           fi.download_queue = download_queue
@@ -400,7 +400,7 @@ module Homebrew
                                  cask_names.map { |name| Formatter.identifier(name) }
         return if combined_fetch_targets.empty?
 
-        oh1 "Fetching downloads for: #{combined_fetch_targets.to_sentence}", truncate: false
+        oh1 "Downloading #{combined_fetch_targets.to_sentence}...", truncate: false
       end
 
       sig { params(cask_installers: T::Array[T.untyped]).void }

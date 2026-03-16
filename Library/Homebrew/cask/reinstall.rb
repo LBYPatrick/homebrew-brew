@@ -60,7 +60,7 @@ module Cask
         unless skip_prefetch
           cask_installers.each(&:prelude)
 
-          oh1 "Fetching downloads for: #{casks.map { |cask| Formatter.identifier(cask.full_name) }.to_sentence}",
+          oh1 "Downloading #{casks.map { |cask| Formatter.identifier(cask.full_name) }.to_sentence}...",
               truncate: false
           cask_installers.each(&:enqueue_downloads)
           download_queue.fetch

@@ -368,6 +368,9 @@ module Homebrew
             end
 
             download_queue.fetch
+
+            download_count = formulae_installer.count + fetch_casks.count
+            ohai "Downloads complete." if download_count.positive?
           ensure
             download_queue.shutdown
           end
